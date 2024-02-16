@@ -45,7 +45,7 @@ class SubjectItem extends StatelessWidget {
                     style: AppTextStyle.interMedium
                         .copyWith(color: AppColors.white, fontSize: 24.sp),
                   ),
-                  Text("$countQuestions",
+                  Text("$countQuestions min",
                       style: AppTextStyle.interMedium
                           .copyWith(color: AppColors.white, fontSize: 24.sp)),
                 ],

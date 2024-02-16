@@ -15,6 +15,7 @@ class AppColors {
   //background color
 
   static const Color c2F3739 = Color(0xFF2F3739);
+  static const Color c3F6754 = Color(0xFF3F6754);
   static const Color c6FCF97 = Color(0xFF6FCF97);
   static const Color c27AE60 = Color(0xFF27AE60);
   static const Color cEB5757 = Color(0xFFEB5757);

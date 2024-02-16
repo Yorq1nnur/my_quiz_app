@@ -4,7 +4,7 @@ import 'package:my_quiz_app/screens/description_screen/description_screen.dart';
 import 'package:my_quiz_app/subject_screen/widget/subject_item.dart';
 import '../data/data_repo.dart';
 import '../models/subject_model.dart';
-import '../screens/start_quiz_screen/start_quiz.dart';
+import '../screens/start_quiz_screen/start_quiz_screen.dart';
 import '../utils/colors/app_colors.dart';
 import '../utils/styles/app_text_style.dart';
 
@@ -52,8 +52,20 @@ class _SubjectScreenState extends State<SubjectScreen> {
                   },
                   subjectModel: subject,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  DescriptionScreen(subjectName: subject.subjectName, subjectCount: subject.questions.length, description: subject.description,)));
-                  }, countQuestions: subject.questions.length,
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DescriptionScreen(
+                          subjectName: subject.subjectName,
+                          subjectCount: subject.questions.length,
+                          description: subject.description,
+                          imagePath: subject.image,
+                          containerColor: subject.color,
+                        ),
+                      ),
+                    );
+                  },
+                  countQuestions: subject.questions.length,
                 );
               },
             ),
