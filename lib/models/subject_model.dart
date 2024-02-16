@@ -1,6 +1,5 @@
 import 'dart:ui';
 import 'package:my_quiz_app/models/quiz_model.dart';
-
 import '../utils/extension/extension.dart';
 import 'level_model.dart';
 

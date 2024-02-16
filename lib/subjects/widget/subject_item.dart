@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../models/subject_model.dart';
 import '../../utils/colors/app_colors.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -9,25 +10,26 @@ class SubjectItem extends StatelessWidget {
       {super.key,
       required this.time,
       required this.onTap,
-      required this.subjectModel});
+      required this.subjectModel, required this.onPressed});
 
   final String time;
   final Function onTap;
   final SubjectModel subjectModel;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-      margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-      decoration: BoxDecoration(
-        color: subjectModel.color,
-        borderRadius: BorderRadius.circular(
-          16.r,
+    return ZoomTapAnimation(
+      onTap: onPressed,
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+        margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+        decoration: BoxDecoration(
+          color: subjectModel.color,
+          borderRadius: BorderRadius.circular(
+            16.r,
+          ),
         ),
-      ),
-      child: TextButton(
-        onPressed: () {},
         child: Padding(
           padding: EdgeInsets.all(
             15.w,
