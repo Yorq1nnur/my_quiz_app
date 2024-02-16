@@ -90,10 +90,10 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
             ),
             Container(
               padding: EdgeInsets.only(
-                top: 10.h,
+                top: 30.h,
               ),
               decoration: BoxDecoration(
-                color: AppColors.c162023,
+                gradient: AppColors.linearGradient,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(
                     40,
@@ -338,7 +338,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                       horizontal: 32.w,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.c273032,
+                      gradient: AppColors.linearGradient,
                       borderRadius: BorderRadius.circular(40),
                       boxShadow: [
                         BoxShadow(
