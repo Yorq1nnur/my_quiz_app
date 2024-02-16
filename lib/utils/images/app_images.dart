@@ -17,5 +17,5 @@ class AppImages {
   //.gif
   //.data
 
-static const String testData= "assets/data/test_data.json";
+static const String dataQuiz= "assets/data/data_quiz.json";
 }

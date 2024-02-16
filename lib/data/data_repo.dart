@@ -17,7 +17,7 @@ class DataRepo {
   List <SubjectModel> allSubjects=[];
 
    Future<void> loadSubjects() async {
-    var data = await rootBundle.loadString(AppImages.testData);
+    var data = await rootBundle.loadString(AppImages.dataQuiz);
 
     var decodedData = jsonDecode(data);
      allSubjects = (decodedData["data"] as List?)
