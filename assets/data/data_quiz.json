@@ -95,6 +95,270 @@
           "variant_4": "sumka"
         }
       ]
+    },
+    {
+      "subject_name": "Fizika",
+      "level": "hard",
+      "description": "Fizikadan o'rta darajadagi testlar to'plami",
+      "color": "6FCF97",
+      "questions": [
+        {
+          "question_text": "Elektronlarning chiqish ishi 3 eV bo'lgan metall sirtiga 5 eV energiyaga ega bo'lgan foton tushganda, fotoelektronlarning maksimal kinetik energiyasi nimaga teng bo'ladi(eV)?",
+          "true_answer": "2",
+          "variant_1": "5",
+          "variant_2": "2",
+          "variant_3": "4",
+          "variant_4": "1"
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "Fotoelementga tushayotgan nurlanish chastotasi 2 marta kamaydi. Agar fotoelement materialidan elektronlarning chiqish ishi hisobga olinmasa, fototokni to'xtatuvchi kuchlanish qanday bo'ladi? ",
+          "true_answer": "2 marta kamayadi",
+          "variant_1": "O'zgarmaydi",
+          "variant_2": "4 marta ortadi",
+          "variant_3": "2 marta kamayadi",
+          "variant_4": "3 marta kamayadi"
+        },
+        {
+          "question_text": "Shaffof muhitda tarqalayotgan koʻzga koʻrinuvchi yorugʻlik toʻlqinlaridan qaysi birining tezligi eng katta boʻladi?",
+          "true_answer": "binafsha",
+          "variant_1": "qizil",
+          "variant_2": "qora",
+          "variant_3": "oq",
+          "variant_4": "binafsha"
+        },
+        {
+          "question_text": "Quyida keltirilgan qaysi nurlar uchun yigʻuvchi linzaning fokus masofasi eng katta boʻladi?",
+          "true_answer": "qizil",
+          "variant_1": "qizil",
+          "variant_2": "sariq",
+          "variant_3": "yashil",
+          "variant_4": "oq"
+        },
+        {
+          "question_text": "Zangori shisha orqali qizil qog’ozga qaralsa, u qanday rangda koʻrinadi?",
+          "true_answer": "qora",
+          "variant_1": "oq",
+          "variant_2": "yashil",
+          "variant_3": "ko'k",
+          "variant_4": "qora"
+        },
+        {
+          "question_text": "Turmalin yoki boshqa qutblovchi kristallardan tabiiy nur oʻtganda, uning intensivlik boʻyicha qanday maksimal qismi qutblangan nur boʻlib oʻtadi?",
+          "true_answer": "0.5",
+          "variant_1": "0.5",
+          "variant_2": "1.2",
+          "variant_3": "0.6",
+          "variant_4": "0.1"
+        },
+        {
+          "question_text": "Yorugʻlik toʻlqini bo’ylama toʻlqinmi yoki koʻndalang toʻlqin?",
+          "true_answer": "koʻndalang",
+          "variant_1": "bo'ylama",
+          "variant_2": "koʻndalang",
+          "variant_3": "yugurma",
+          "variant_4": "ham koʻndalang, ham boʻylama"
+        },
+        {
+          "question_text": "Quyidagi keltirilgan hodisalardan qaysi biri yorugʻlik to’lqinining ko’ndalangligini tasdiqlaydi? ",
+          "true_answer": "qutblanish",
+          "variant_1": "dispersiya",
+          "variant_2": "qutblanish",
+          "variant_3": "interferensiya ",
+          "variant_4": "diffraksiya"
+        },
+        {
+          "question_text": "Quyida keltirilgan toʻlqinlarning qaysi birlari qutblanish xususiyatiga ega: 1) tovush toʻlqini; 2) radiotoʻlqin; 3) yorugʻlik toʻlqini?",
+          "true_answer": "3",
+          "variant_1": "3",
+          "variant_2": "2",
+          "variant_3": "1",
+          "variant_4": "1 va 3"
+        }
+      ]
+    },
+    {
+      "subject_name": "Dasturlash",
+      "level": "medium",
+      "description": "Dasturlashdan o'rta darajadagi testlar to'plami",
+      "color": "F2954D",
+      "questions": [
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "Stek oxiridagi elementni o’chirishni qaysi funksiya amalga oshiradi?",
+          "true_answer": "pop()",
+          "variant_1": "push()",
+          "variant_2": "pop()",
+          "variant_3": "delete()",
+          "variant_4": "clear()"
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        }
+      ]
+    },
+    {
+      "subject_name": "Dasturlash",
+      "level": "hard",
+      "description": "Dasturlashdan o'rta darajadagi testlar to'plami",
+      "color": "162023",
+      "questions": [
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        },
+        {
+          "question_text": "",
+          "true_answer": "",
+          "variant_1": "",
+          "variant_2": "",
+          "variant_3": "",
+          "variant_4": ""
+        }
+      ]
     }
   ]
 }

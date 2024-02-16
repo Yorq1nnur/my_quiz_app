@@ -10,12 +10,13 @@ class SubjectItem extends StatelessWidget {
       {super.key,
       required this.time,
       required this.onTap,
-      required this.subjectModel, required this.onPressed});
+      required this.subjectModel, required this.onPressed, required this.countQuestions});
 
   final String time;
   final Function onTap;
   final SubjectModel subjectModel;
   final VoidCallback onPressed;
+  final int? countQuestions;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +45,7 @@ class SubjectItem extends StatelessWidget {
                     style: AppTextStyle.interMedium
                         .copyWith(color: AppColors.white, fontSize: 24.sp),
                   ),
-                  Text("12:00",
+                  Text("$countQuestions",
                       style: AppTextStyle.interMedium
                           .copyWith(color: AppColors.white, fontSize: 24.sp)),
                 ],

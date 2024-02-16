@@ -9,7 +9,11 @@ class AppColors {
   static const Color c273032 = Color(0xFF273032);
   static const Color c162023 = Color(0xFF162023);
   static const Color cF2F2F2 = Color(0xFFF2F2F2);
+
+  //background color
   static const Color c0E81B4 = Color(0xFF0E81B4);
+  //background color
+
   static const Color c2F3739 = Color(0xFF2F3739);
   static const Color c6FCF97 = Color(0xFF6FCF97);
   static const Color c27AE60 = Color(0xFF27AE60);
@@ -20,6 +24,11 @@ class AppColors {
   static const LinearGradient linearGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
-    colors: [Colors.blue, Colors.green],
+    colors: [Colors.green, Colors.yellowAccent],
+  );
+  static const LinearGradient linearGradient2 = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.topRight,
+    colors: [Colors.blue, Colors.blueAccent, Colors.lightBlue, Colors.lightBlueAccent, ],
   );
 }

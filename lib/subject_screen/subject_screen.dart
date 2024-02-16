@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_quiz_app/screens/description_screen/description_screen.dart';
-import 'package:my_quiz_app/subjects/widget/subject_item.dart';
+import 'package:my_quiz_app/subject_screen/widget/subject_item.dart';
 import '../data/data_repo.dart';
 import '../models/subject_model.dart';
 import '../screens/start_quiz_screen/start_quiz.dart';
@@ -31,6 +31,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
+        physics: const BouncingScrollPhysics(),
         child: Column(
           children: [
             ...List.generate(
@@ -38,7 +39,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
               (index) {
                 SubjectModel subject = DataRepo().allSubjects[index];
                 return SubjectItem(
-                  time: "12:00",
+                  time: "${subject.questions.length * 1}",
                   onTap: () {
                     Navigator.push(
                       context,
@@ -51,8 +52,8 @@ class _SubjectScreenState extends State<SubjectScreen> {
                   },
                   subjectModel: subject,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const DescriptionScreen()));
-                  },
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  DescriptionScreen(subjectName: subject.subjectName,)));
+                  }, countQuestions: subject.questions.length,
                 );
               },
             ),
