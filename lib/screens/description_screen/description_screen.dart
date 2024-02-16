@@ -8,9 +8,15 @@ import '../../utils/images/app_images.dart';
 import '../../utils/styles/app_text_style.dart';
 
 class DescriptionScreen extends StatefulWidget {
-  const DescriptionScreen({super.key, required this.subjectName});
+  const DescriptionScreen(
+      {super.key,
+      required this.subjectName,
+      required this.subjectCount,
+      required this.description});
 
   final String subjectName;
+  final String description;
+  final int subjectCount;
 
   @override
   State<DescriptionScreen> createState() => _DescriptionScreenState();
@@ -76,7 +82,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                     width: 16.w,
                   ),
                   Text(
-                    "Start Quiz",
+                    "QUIZNI BOSHLASH",
                     style: AppTextStyle.interBold.copyWith(
                       color: AppColors.cF2F2F2,
                       fontWeight: FontWeight.w500,
@@ -86,67 +92,155 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                 ],
               ),
             ),
-            Container(
-              width: double.infinity,
-              padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),
-              decoration: BoxDecoration(
-                gradient: AppColors.linearGradient2,
-                borderRadius: BorderRadius.only(
-                  topRight: Radius.circular(40.r),
-                  topLeft: Radius.circular(40.r),
+            Expanded(
+              child: Container(
+                width: double.infinity,
+                padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),
+                decoration: BoxDecoration(
+                  gradient: AppColors.linearGradient2,
+                  borderRadius: BorderRadius.only(
+                    topRight: Radius.circular(40.r),
+                    topLeft: Radius.circular(40.r),
+                  ),
                 ),
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Center(
-                    child: Text(
-                      "WELCOME TO QUIZ",
-                      style: AppTextStyle.interBold.copyWith(
-                        color: Colors.yellowAccent,
-                        fontSize: 30.sp,
-                        fontWeight: FontWeight.w900,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Center(
+                      child: Text(
+                        "WELCOME TO QUIZ",
+                        style: AppTextStyle.interBold.copyWith(
+                          color: Colors.yellowAccent,
+                          fontSize: 30.sp,
+                          fontWeight: FontWeight.w900,
+                        ),
                       ),
                     ),
-                  ),
-                  Image.asset(
-                    AppImages.math,
-                    height: 250.h,
-                    width: double.infinity,
-                    fit: BoxFit.cover,
-                  ),
-                  SizedBox(
-                    height: 30.h,
-                  ),
-                  Align(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Text(
-                          "FAN NOMI:",
-                          style: AppTextStyle.interBold.copyWith(
-                              color: AppColors.c2F3739,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w900),
-                        ),
-                        SizedBox(
-                          width: 20.w,
-                        ),
-                        Text(
-                          widget.subjectName,
-                          style: AppTextStyle.interBold.copyWith(
-                            color: AppColors.cF2F2F2,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.w700,
-                          ),
-                        )
-                      ],
+                    Image.asset(
+                      AppImages.math,
+                      height: 250.h,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                     ),
-                  )
-                ],
+                    SizedBox(
+                      height: 30.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "FAN NOMI:",
+                            style: AppTextStyle.interBold.copyWith(
+                                color: AppColors.c2F3739,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Text(
+                            widget.subjectName,
+                            style: AppTextStyle.interBold.copyWith(
+                              color: AppColors.cF2F2F2,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "SAVOLLAR SONI:",
+                            style: AppTextStyle.interBold.copyWith(
+                                color: AppColors.c2F3739,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Text(
+                            widget.subjectCount.toString(),
+                            style: AppTextStyle.interBold.copyWith(
+                              color: AppColors.cF2F2F2,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5.h,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 30.w),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text(
+                            "UMUMIY VAQT:",
+                            style: AppTextStyle.interBold.copyWith(
+                                color: AppColors.c2F3739,
+                                fontSize: 16.sp,
+                                fontWeight: FontWeight.w900),
+                          ),
+                          SizedBox(
+                            width: 20.w,
+                          ),
+                          Text(
+                            "${widget.subjectCount} min",
+                            style: AppTextStyle.interBold.copyWith(
+                              color: AppColors.cF2F2F2,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w700,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 20.h,
+                    ),
+                    Center(
+                      child: Text(
+                        "TAVSIF:",
+                        style: AppTextStyle.interBold.copyWith(
+                          color: Colors.redAccent,
+                          fontSize: 24.sp,
+                          fontWeight: FontWeight.w900,
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 10.h,
+                    ),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        child: Text(
+                          widget.description,
+                          style: AppTextStyle.interBold.copyWith(
+                              color: Colors.orange,
+                              fontSize: 20.sp,
+                              fontWeight: FontWeight.w500),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                    )
+                  ],
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),

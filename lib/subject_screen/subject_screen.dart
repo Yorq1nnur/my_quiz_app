@@ -52,7 +52,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
                   },
                   subjectModel: subject,
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  DescriptionScreen(subjectName: subject.subjectName,)));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  DescriptionScreen(subjectName: subject.subjectName, subjectCount: subject.questions.length, description: subject.description,)));
                   }, countQuestions: subject.questions.length,
                 );
               },
