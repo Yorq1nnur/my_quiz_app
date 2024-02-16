@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:my_quiz_app/screens/start_quiz_screen/start_quiz_screen.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../utils/colors/app_colors.dart';
 import '../../utils/images/app_images.dart';
@@ -15,13 +14,15 @@ class DescriptionScreen extends StatefulWidget {
       required this.subjectCount,
       required this.description,
       required this.imagePath,
-      required this.containerColor});
+      required this.containerColor,
+      required this.onTap});
 
   final String subjectName;
   final String imagePath;
   final String description;
   final int subjectCount;
   final Color containerColor;
+  final VoidCallback onTap;
 
   @override
   State<DescriptionScreen> createState() => _DescriptionScreenState();
@@ -308,38 +309,36 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                             ),
                           ),
                           ZoomTapAnimation(
-                            onTap: (){
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => const StartQuizScreen()));
-                            },
+                            onTap: widget.onTap,
                             child: Container(
-                            padding: EdgeInsets.symmetric(
-                              vertical: 12.h,
-                              horizontal: 20.w,
-                            ),
-                            decoration: BoxDecoration(
-                              color: AppColors.cF2954D,
-                              borderRadius: BorderRadius.circular(16),
-                              boxShadow: [
-                                const BoxShadow(
-                                  color: AppColors.cF2954D,
-                                  spreadRadius: 1,
+                              padding: EdgeInsets.symmetric(
+                                vertical: 12.h,
+                                horizontal: 20.w,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.cF2954D,
+                                borderRadius: BorderRadius.circular(16),
+                                boxShadow: [
+                                  const BoxShadow(
+                                    color: AppColors.cF2954D,
+                                    spreadRadius: 1,
+                                  ),
+                                  BoxShadow(
+                                    color: AppColors.c000000.withOpacity(0.25),
+                                    blurRadius: 12,
+                                    offset: const Offset(0, 5),
+                                  ),
+                                ],
+                              ),
+                              child: Text(
+                                "Quizni boshlash",
+                                style: AppTextStyle.interThin.copyWith(
+                                  color: AppColors.cF2F2F2,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
                                 ),
-                                BoxShadow(
-                                  color: AppColors.c000000.withOpacity(0.25),
-                                  blurRadius: 12,
-                                  offset: const Offset(0, 5),
-                                ),
-                              ],
-                            ),
-                            child: Text(
-                              "Quizni boshlash",
-                              style: AppTextStyle.interThin.copyWith(
-                                color: AppColors.cF2F2F2,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w600,
                               ),
                             ),
-                          ),
                           )
                         ],
                       ),

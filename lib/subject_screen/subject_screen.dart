@@ -40,16 +40,6 @@ class _SubjectScreenState extends State<SubjectScreen> {
                 SubjectModel subject = DataRepo().allSubjects[index];
                 return SubjectItem(
                   time: "${subject.questions.length * 1}",
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const StartQuizScreen();
-                        },
-                      ),
-                    );
-                  },
                   subjectModel: subject,
                   onPressed: () {
                     Navigator.push(
@@ -61,6 +51,16 @@ class _SubjectScreenState extends State<SubjectScreen> {
                           description: subject.description,
                           imagePath: subject.image,
                           containerColor: subject.color,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => StartQuizScreen(
+                                  time: subject.questions.length, subjectName: subject.subjectName, subjectModel: subject,
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     );

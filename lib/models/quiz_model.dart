@@ -25,10 +25,10 @@ class QuizModel {
       description: json["description"] as String? ?? "",
       image: json["image"] as String? ?? "",
       trueAnswer: json["trueAnswer"] as String? ?? "",
-      variant1: json["variant1"] as String? ?? "",
-      variant2: json["variant2"] as String? ?? "",
-      variant3: json["variant3"] as String? ?? "",
-      variant4: json["variant4"] as String? ?? "",
+      variant1: json["variant_1"] as String? ?? "",
+      variant2: json["variant_2"] as String? ?? "",
+      variant3: json["variant_3"] as String? ?? "",
+      variant4: json["variant_4"] as String? ?? "",
     );
   }
 }
