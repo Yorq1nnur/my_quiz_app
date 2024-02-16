@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:my_quiz_app/subjects/widget/subject_item.dart';
 import '../data/data_repo.dart';
 import '../models/subject_model.dart';
-import '../screens/start_quiz/start_quiz.dart';
+import '../screens/start_quiz_screen/start_quiz.dart';
 import '../utils/colors/app_colors.dart';
 import '../utils/images/app_images.dart';
 import '../utils/styles/app_text_style.dart';
@@ -40,29 +40,32 @@ class _SubjectScreenState extends State<SubjectScreen> {
           ),
         ),
       ),
-      body: Column(
-        children: [
-          ...List.generate(
-            DataRepo().allSubjects.length,
-            (index) {
-              SubjectModel subject = DataRepo().allSubjects[index];
-              return SubjectItem(
-                time: "12:00",
-                onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const StartQuiz();
-                      },
-                    ),
-                  );
-                },
-                subjectModel: subject,
-              );
-            },
-          ),
-        ],
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            ...List.generate(
+              DataRepo().allSubjects.length,
+                  (index) {
+                SubjectModel subject = DataRepo().allSubjects[index];
+                return SubjectItem(
+                  time: "12:00",
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const StartQuizScreen();
+                        },
+                      ),
+                    );
+                  },
+                  subjectModel: subject,
+                );
+              },
+            ),
+          ],
+        ),
       ),
     );
   }

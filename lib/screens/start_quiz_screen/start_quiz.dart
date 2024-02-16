@@ -3,14 +3,14 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../utils/images/app_images.dart';
 
-class StartQuiz extends StatefulWidget {
-  const StartQuiz({super.key});
+class StartQuizScreen extends StatefulWidget {
+  const StartQuizScreen({super.key});
 
   @override
-  State<StartQuiz> createState() => _StartQuizState();
+  State<StartQuizScreen> createState() => _StartQuizScreenState();
 }
 
-class _StartQuizState extends State<StartQuiz> {
+class _StartQuizScreenState extends State<StartQuizScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
