@@ -9,11 +9,11 @@ class SubjectItem extends StatelessWidget {
   const SubjectItem(
       {super.key,
       required this.time,
-      required this.onTap,
-      required this.subjectModel, required this.onPressed, required this.countQuestions});
+      required this.subjectModel,
+      required this.onPressed,
+      required this.countQuestions});
 
   final String time;
-  final Function onTap;
   final SubjectModel subjectModel;
   final VoidCallback onPressed;
   final int? countQuestions;
@@ -45,7 +45,7 @@ class SubjectItem extends StatelessWidget {
                     style: AppTextStyle.interMedium
                         .copyWith(color: AppColors.white, fontSize: 24.sp),
                   ),
-                  Text("$countQuestions",
+                  Text("$countQuestions min",
                       style: AppTextStyle.interMedium
                           .copyWith(color: AppColors.white, fontSize: 24.sp)),
                 ],

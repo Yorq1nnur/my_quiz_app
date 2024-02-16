@@ -4,7 +4,7 @@ import 'package:my_quiz_app/screens/description_screen/description_screen.dart';
 import 'package:my_quiz_app/subject_screen/widget/subject_item.dart';
 import '../data/data_repo.dart';
 import '../models/subject_model.dart';
-import '../screens/start_quiz_screen/start_quiz.dart';
+import '../screens/start_quiz_screen/start_quiz_screen.dart';
 import '../utils/colors/app_colors.dart';
 import '../utils/styles/app_text_style.dart';
 
@@ -40,20 +40,32 @@ class _SubjectScreenState extends State<SubjectScreen> {
                 SubjectModel subject = DataRepo().allSubjects[index];
                 return SubjectItem(
                   time: "${subject.questions.length * 1}",
-                  onTap: () {
+                  subjectModel: subject,
+                  onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) {
-                          return const StartQuizScreen();
-                        },
+                        builder: (context) => DescriptionScreen(
+                          subjectName: subject.subjectName,
+                          subjectCount: subject.questions.length,
+                          description: subject.description,
+                          imagePath: subject.image,
+                          containerColor: subject.color,
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => StartQuizScreen(
+                                  time: subject.questions.length, subjectName: subject.subjectName, subjectModel: subject,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     );
                   },
-                  subjectModel: subject,
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  DescriptionScreen(subjectName: subject.subjectName, subjectCount: subject.questions.length, description: subject.description,)));
-                  }, countQuestions: subject.questions.length,
+                  countQuestions: subject.questions.length,
                 );
               },
             ),

@@ -12,11 +12,17 @@ class DescriptionScreen extends StatefulWidget {
       {super.key,
       required this.subjectName,
       required this.subjectCount,
-      required this.description});
+      required this.description,
+      required this.imagePath,
+      required this.containerColor,
+      required this.onTap});
 
   final String subjectName;
+  final String imagePath;
   final String description;
   final int subjectCount;
+  final Color containerColor;
+  final VoidCallback onTap;
 
   @override
   State<DescriptionScreen> createState() => _DescriptionScreenState();
@@ -97,7 +103,15 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                 width: double.infinity,
                 padding: EdgeInsets.only(left: 15.w, right: 15.w, top: 20.h),
                 decoration: BoxDecoration(
-                  gradient: AppColors.linearGradient2,
+                  color: widget.containerColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: widget.containerColor.withOpacity(
+                        0.5,
+                      ),
+                      spreadRadius: 5,
+                    )
+                  ],
                   borderRadius: BorderRadius.only(
                     topRight: Radius.circular(40.r),
                     topLeft: Radius.circular(40.r),
@@ -111,16 +125,19 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         "WELCOME TO QUIZ",
                         style: AppTextStyle.interBold.copyWith(
                           color: Colors.yellowAccent,
-                          fontSize: 30.sp,
+                          fontSize: 24.sp,
                           fontWeight: FontWeight.w900,
                         ),
                       ),
                     ),
-                    Image.asset(
-                      AppImages.math,
-                      height: 250.h,
-                      width: double.infinity,
-                      fit: BoxFit.cover,
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(40.r),
+                      child: Image.asset(
+                        widget.imagePath,
+                        height: 250.h,
+                        width: double.infinity,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                     SizedBox(
                       height: 30.h,
@@ -199,7 +216,7 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                             width: 20.w,
                           ),
                           Text(
-                            "${widget.subjectCount} min",
+                            "${widget.subjectCount}:00",
                             style: AppTextStyle.interBold.copyWith(
                               color: AppColors.cF2F2F2,
                               fontSize: 16.sp,
@@ -216,9 +233,9 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                       child: Text(
                         "TAVSIF:",
                         style: AppTextStyle.interBold.copyWith(
-                          color: Colors.redAccent,
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.w900,
+                          color: Colors.white70,
+                          fontSize: 22.sp,
+                          fontWeight: FontWeight.w700,
                         ),
                       ),
                     ),
@@ -230,13 +247,102 @@ class _DescriptionScreenState extends State<DescriptionScreen> {
                         child: Text(
                           widget.description,
                           style: AppTextStyle.interBold.copyWith(
-                              color: Colors.orange,
+                              color: Colors.white,
                               fontSize: 20.sp,
                               fontWeight: FontWeight.w500),
                           textAlign: TextAlign.center,
                         ),
                       ),
-                    )
+                    ),
+                    Container(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 20.h,
+                        horizontal: 32.w,
+                      ),
+                      decoration: BoxDecoration(
+                        color: AppColors.c273032,
+                        borderRadius: BorderRadius.circular(40),
+                        boxShadow: [
+                          BoxShadow(
+                            color: AppColors.c000000.withOpacity(0.25),
+                            blurRadius: 4,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 12.w, vertical: 8.h),
+                            decoration: BoxDecoration(
+                              color: AppColors.c273032,
+                              boxShadow: const [
+                                BoxShadow(
+                                  color: AppColors.cF2F2F2,
+                                  spreadRadius: 1,
+                                ),
+                              ],
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                SvgPicture.asset(
+                                  AppImages.clock,
+                                  height: 22.h,
+                                  width: 22.w,
+                                  fit: BoxFit.cover,
+                                ),
+                                SizedBox(
+                                  width: 5.w,
+                                ),
+                                Text(
+                                  "${widget.subjectCount}:00",
+                                  style: AppTextStyle.interThin.copyWith(
+                                      color: AppColors.cF2F2F2,
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w500),
+                                ),
+                              ],
+                            ),
+                          ),
+                          ZoomTapAnimation(
+                            onTap: widget.onTap,
+                            child: Container(
+                              padding: EdgeInsets.symmetric(
+                                vertical: 12.h,
+                                horizontal: 20.w,
+                              ),
+                              decoration: BoxDecoration(
+                                color: AppColors.cF2954D,
+                                borderRadius: BorderRadius.circular(16),
+                                boxShadow: [
+                                  const BoxShadow(
+                                    color: AppColors.cF2954D,
+                                    spreadRadius: 1,
+                                  ),
+                                  BoxShadow(
+                                    color: AppColors.c000000.withOpacity(0.25),
+                                    blurRadius: 12,
+                                    offset: const Offset(0, 5),
+                                  ),
+                                ],
+                              ),
+                              child: Text(
+                                "Quizni boshlash",
+                                style: AppTextStyle.interThin.copyWith(
+                                  color: AppColors.cF2F2F2,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ),
