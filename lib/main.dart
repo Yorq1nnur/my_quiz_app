@@ -4,7 +4,7 @@ import 'package:my_quiz_app/screens/splash_screen.dart';
 import 'package:my_quiz_app/utils/colors/app_colors.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       builder: (context,child){
         return MaterialApp(
           theme: ThemeData(
-            scaffoldBackgroundColor: AppColors.c_181725
+            scaffoldBackgroundColor: AppColors.c0E81B4
           ),
           home: child ,
           debugShowCheckedModeBanner: false,

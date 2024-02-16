@@ -20,9 +20,9 @@ class _SubjectScreenState extends State<SubjectScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.c0E81B4,
       appBar: AppBar(
-        backgroundColor: AppColors.white,
+        backgroundColor: AppColors.c0E81B4,
         title: Text(
           "Fanni tanlang",
           style: AppTextStyle.interMedium
@@ -40,7 +40,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
           ),
         ),
       ),
-      body: ListView(
+      body: Column(
         children: [
           ...List.generate(
             DataRepo().allSubjects.length,

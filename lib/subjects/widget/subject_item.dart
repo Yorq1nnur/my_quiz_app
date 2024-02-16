@@ -17,50 +17,53 @@ class SubjectItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(15.w),
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
-        decoration: BoxDecoration(
-            color: subjectModel.color,
-            borderRadius: BorderRadius.circular(16.r)),
-        child: TextButton(
-          onPressed: () {},
-          child: Padding(
-            padding: EdgeInsets.all(15.w),
-            child: Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      subjectModel.subjectName.toString(),
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      decoration: BoxDecoration(
+        color: subjectModel.color,
+        borderRadius: BorderRadius.circular(
+          16.r,
+        ),
+      ),
+      child: TextButton(
+        onPressed: () {},
+        child: Padding(
+          padding: EdgeInsets.all(
+            15.w,
+          ),
+          child: Column(
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    subjectModel.subjectName.toString(),
+                    style: AppTextStyle.interMedium
+                        .copyWith(color: AppColors.white, fontSize: 24.sp),
+                  ),
+                  Text("12:00",
                       style: AppTextStyle.interMedium
-                          .copyWith(color: AppColors.white, fontSize: 24.sp),
-                    ),
-                    Text("12:00",
-                        style: AppTextStyle.interMedium
-                            .copyWith(color: AppColors.white, fontSize: 24.sp)),
-                  ],
-                ),
-                SizedBox(
-                  height: 20.h,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(subjectModel.level.name.toString(),
-                        style: AppTextStyle.interMedium
-                            .copyWith(color: AppColors.white, fontSize: 24.sp)),
-                    Text(
-                      subjectModel.questions.length.toString(),
+                          .copyWith(color: AppColors.white, fontSize: 24.sp)),
+                ],
+              ),
+              SizedBox(
+                height: 20.h,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(subjectModel.level.name.toString(),
                       style: AppTextStyle.interMedium
-                          .copyWith(color: AppColors.white, fontSize: 24.sp),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                          .copyWith(color: AppColors.white, fontSize: 24.sp)),
+                  Text(
+                    subjectModel.questions.length.toString(),
+                    style: AppTextStyle.interMedium
+                        .copyWith(color: AppColors.white, fontSize: 24.sp),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),
