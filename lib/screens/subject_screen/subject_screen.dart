@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_quiz_app/screens/description_screen/description_screen.dart';
-import 'package:my_quiz_app/subject_screen/widget/subject_item.dart';
-import '../data/data_repo.dart';
-import '../models/subject_model.dart';
-import '../screens/start_quiz_screen/start_quiz_screen.dart';
-import '../utils/colors/app_colors.dart';
-import '../utils/styles/app_text_style.dart';
+import 'package:my_quiz_app/screens/subject_screen/widget/subject_item.dart';
+
+import '../../data/data_repo.dart';
+import '../../models/subject_model.dart';
+import '../../utils/colors/app_colors.dart';
+import '../../utils/styles/app_text_style.dart';
+import '../start_quiz_screen/start_quiz_screen.dart';
 
 class SubjectScreen extends StatefulWidget {
   const SubjectScreen({super.key});

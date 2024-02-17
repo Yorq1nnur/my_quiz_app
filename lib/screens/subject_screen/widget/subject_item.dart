@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
-import '../../models/subject_model.dart';
-import '../../utils/colors/app_colors.dart';
-import '../../utils/styles/app_text_style.dart';
+import '../../../models/subject_model.dart';
+import '../../../utils/colors/app_colors.dart';
+import '../../../utils/styles/app_text_style.dart';
 
 class SubjectItem extends StatelessWidget {
   const SubjectItem(
@@ -42,12 +42,18 @@ class SubjectItem extends StatelessWidget {
                 children: [
                   Text(
                     subjectModel.subjectName.toString(),
-                    style: AppTextStyle.interMedium
-                        .copyWith(color: AppColors.white, fontSize: 24.sp),
+                    style: AppTextStyle.interMedium.copyWith(
+                      color: AppColors.white,
+                      fontSize: 24.sp,
+                    ),
                   ),
-                  Text("$countQuestions min",
-                      style: AppTextStyle.interMedium
-                          .copyWith(color: AppColors.white, fontSize: 24.sp)),
+                  Text(
+                    "$countQuestions min",
+                    style: AppTextStyle.interMedium.copyWith(
+                      color: AppColors.white,
+                      fontSize: 24.sp,
+                    ),
+                  ),
                 ],
               ),
               SizedBox(
@@ -61,8 +67,10 @@ class SubjectItem extends StatelessWidget {
                           .copyWith(color: AppColors.white, fontSize: 24.sp)),
                   Text(
                     subjectModel.questions.length.toString(),
-                    style: AppTextStyle.interMedium
-                        .copyWith(color: AppColors.white, fontSize: 24.sp),
+                    style: AppTextStyle.interMedium.copyWith(
+                      color: AppColors.white,
+                      fontSize: 24.sp,
+                    ),
                   ),
                 ],
               ),
