@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../colors/app_colors.dart';
-
 class AppTextStyle {
   //Inter
   static const TextStyle interThin = TextStyle(
