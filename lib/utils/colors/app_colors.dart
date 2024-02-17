@@ -12,6 +12,7 @@ class AppColors {
 
   //background color
   static const Color c0E81B4 = Color(0xFF0E81B4);
+
   //background color
 
   static const Color c2F3739 = Color(0xFF2F3739);
@@ -31,6 +32,11 @@ class AppColors {
   static const LinearGradient linearGradient2 = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.topRight,
-    colors: [Colors.blue, Colors.blueAccent, Colors.lightBlue, Colors.lightBlueAccent, ],
+    colors: [
+      Colors.blue,
+      Colors.blueAccent,
+      Colors.lightBlue,
+      Colors.lightBlueAccent,
+    ],
   );
 }

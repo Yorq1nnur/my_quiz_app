@@ -8,7 +8,8 @@ class GetTrueAnswersContainer extends StatelessWidget {
     super.key,
     required this.containerColor,
     required this.answersCount,
-    required this.check, required this.horizontalPadding,
+    required this.check,
+    required this.horizontalPadding,
   });
 
   final Color containerColor;

@@ -293,7 +293,7 @@ class _ResultScreenState extends State<ResultScreen> {
                         ]),
                   ),
                   ZoomTapAnimation(
-                    onTap: (){},
+                    onTap: () {},
                     child: Container(
                       padding: EdgeInsets.symmetric(
                         vertical: 8.h,

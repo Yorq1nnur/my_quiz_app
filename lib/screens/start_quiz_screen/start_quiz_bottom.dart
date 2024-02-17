@@ -10,7 +10,9 @@ class StartQuizBottom extends StatefulWidget {
   const StartQuizBottom({
     super.key,
     required this.previousOnTap,
-    required this.nextOnTap, required this.previousButtonVisibility, required this.nextButtonVisibility,
+    required this.nextOnTap,
+    required this.previousButtonVisibility,
+    required this.nextButtonVisibility,
   });
 
   final VoidCallback previousOnTap;

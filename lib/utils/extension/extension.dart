@@ -6,21 +6,28 @@ double width = 0.0;
 
 extension Size on int {
   double getH() {
-    return (this /812) * height;
+    return (this / 812) * height;
   }
 
   double getW() {
-    return (this /375) * width;
+    return (this / 375) * width;
   }
 }
 
-
-LevelModel getLevelFromString(String level){
-  switch (level){
-    case "easy" :{ return LevelModel.easy;}
-    case "hard" :{ return LevelModel.hard;}
-    default:  { return LevelModel.medium;}
-
+LevelModel getLevelFromString(String level) {
+  switch (level) {
+    case "easy":
+      {
+        return LevelModel.easy;
+      }
+    case "hard":
+      {
+        return LevelModel.hard;
+      }
+    default:
+      {
+        return LevelModel.medium;
+      }
   }
 }
 

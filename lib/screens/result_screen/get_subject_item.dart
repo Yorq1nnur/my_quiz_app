@@ -5,7 +5,8 @@ import '../../utils/colors/app_colors.dart';
 import '../../utils/styles/app_text_style.dart';
 
 class GetSubjectItem extends StatelessWidget {
-  const GetSubjectItem({super.key, required this.subjectName, required this.subjectDescription});
+  const GetSubjectItem(
+      {super.key, required this.subjectName, required this.subjectDescription});
 
   final String subjectName;
   final String subjectDescription;
@@ -48,12 +49,16 @@ class GetSubjectItem extends StatelessWidget {
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(height: 8.h,),
-          Text(subjectDescription, style: AppTextStyle.interBold.copyWith(
-              color: AppColors.cF2F2F2.withOpacity(0.5),
-              fontSize: 13.sp,
-              fontWeight: FontWeight.w400
-          ),)
+          SizedBox(
+            height: 8.h,
+          ),
+          Text(
+            subjectDescription,
+            style: AppTextStyle.interBold.copyWith(
+                color: AppColors.cF2F2F2.withOpacity(0.5),
+                fontSize: 13.sp,
+                fontWeight: FontWeight.w400),
+          )
         ],
       ),
     );

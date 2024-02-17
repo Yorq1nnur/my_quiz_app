@@ -7,7 +7,8 @@ import '../../utils/images/app_images.dart';
 import '../../utils/styles/app_text_style.dart';
 
 class StartQuizAppBar extends StatelessWidget {
-  const StartQuizAppBar({super.key, required this.title, required this.submitOnTap});
+  const StartQuizAppBar(
+      {super.key, required this.title, required this.submitOnTap});
 
   final String title;
   final VoidCallback submitOnTap;
@@ -33,8 +34,7 @@ class StartQuizAppBar extends StatelessWidget {
                 color: AppColors.c162023,
                 borderRadius: BorderRadius.circular(8),
                 boxShadow: [
-                  const BoxShadow(
-                      color: AppColors.c2F3739, spreadRadius: 1),
+                  const BoxShadow(color: AppColors.c2F3739, spreadRadius: 1),
                   BoxShadow(
                     color: AppColors.c000000.withOpacity(0.25),
                     blurRadius: 12,
@@ -45,8 +45,7 @@ class StartQuizAppBar extends StatelessWidget {
                   ),
                 ],
               ),
-              padding: EdgeInsets.symmetric(
-                  horizontal: 12.w, vertical: 12.w),
+              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 12.w),
               child: Center(
                 child: SvgPicture.asset(
                   AppImages.arrowBack,
