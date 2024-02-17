@@ -28,7 +28,10 @@ class _VariantItemState extends State<VariantItem> {
     return Material(
       color: AppColors.transparent,
       child: Ink(
-        padding: EdgeInsets.only(top: 14.h,  bottom: 14.h,),
+        padding: EdgeInsets.only(
+          top: 14.h,
+          bottom: 14.h,
+        ),
         child: InkWell(
           onTap: widget.onTap,
           borderRadius: BorderRadius.circular(

@@ -56,11 +56,19 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             StartQuizAppBar(
-              title: widget.subjectName, submitOnTap: () {
-                if(questionIndex == questions.length-1){
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ResultScreen(subjectModel: widget.subjectModel,)));
+              title: widget.subjectName,
+              submitOnTap: () {
+                if (questionIndex == questions.length - 1) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ResultScreen(
+                        subjectModel: widget.subjectModel,
+                      ),
+                    ),
+                  );
                 }
-            },
+              },
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),

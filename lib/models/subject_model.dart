@@ -11,7 +11,7 @@ class SubjectModel {
   final LevelModel level;
   final Color color;
 
-  SubjectModel( {
+  SubjectModel({
     required this.level,
     required this.questions,
     required this.subjectName,
@@ -22,7 +22,7 @@ class SubjectModel {
 
   factory SubjectModel.fromJson(Map<String, dynamic> json) {
     return SubjectModel(
-      color:  (json["color"] as String? ?? "F2954D").toColor(),
+      color: (json["color"] as String? ?? "F2954D").toColor(),
       level: getLevelFromString(json["level"] as String? ?? ""),
       subjectName: json["subject_name"] as String? ?? "",
       image: json["image"] as String? ?? "",

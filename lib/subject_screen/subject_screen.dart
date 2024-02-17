@@ -56,7 +56,9 @@ class _SubjectScreenState extends State<SubjectScreen> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => StartQuizScreen(
-                                  time: subject.questions.length, subjectName: subject.subjectName, subjectModel: subject,
+                                  time: subject.questions.length,
+                                  subjectName: subject.subjectName,
+                                  subjectModel: subject,
                                 ),
                               ),
                             );
