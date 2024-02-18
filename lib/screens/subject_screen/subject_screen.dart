@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_quiz_app/screens/description_screen/description_screen.dart';
 import 'package:my_quiz_app/screens/subject_screen/widget/subject_item.dart';
-
 import '../../data/data_repo.dart';
 import '../../models/subject_model.dart';
 import '../../utils/colors/app_colors.dart';

@@ -3,10 +3,12 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:my_quiz_app/models/subject_model.dart';
+import 'package:my_quiz_app/screens/result_screen/bottom_container.dart';
 import 'package:my_quiz_app/screens/result_screen/get_bottom_items.dart';
 import 'package:my_quiz_app/screens/result_screen/get_subject_item.dart';
 import 'package:my_quiz_app/screens/result_screen/get_time_container.dart';
 import 'package:my_quiz_app/screens/result_screen/get_true_answers_container.dart';
+import 'package:my_quiz_app/screens/result_screen/widget_app_bar.dart';
 import 'package:my_quiz_app/utils/colors/app_colors.dart';
 import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../utils/images/app_images.dart';
@@ -45,67 +47,15 @@ class _ResultScreenState extends State<ResultScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
-                    padding: EdgeInsets.only(
-                      bottom: 22.h,
-                    ),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        ZoomTapAnimation(
-                          onTap: () {
-                            Navigator.pushReplacement(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        const SubjectScreen()));
-                          },
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: AppColors.c162023,
-                              borderRadius: BorderRadius.circular(8),
-                              boxShadow: [
-                                const BoxShadow(
-                                    color: AppColors.c2F3739, spreadRadius: 1),
-                                BoxShadow(
-                                  color: AppColors.c000000.withOpacity(0.25),
-                                  blurRadius: 12,
-                                  offset: Offset(
-                                    0,
-                                    5.w,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 12.w, vertical: 12.w),
-                            child: Center(
-                              child: SvgPicture.asset(
-                                AppImages.arrowBack,
-                                height: 24.h,
-                                width: 24.w,
-                                fit: BoxFit.cover,
-                                colorFilter: const ColorFilter.mode(
-                                  AppColors.cF2F2F2,
-                                  BlendMode.srcIn,
-                                ),
-                              ),
-                            ),
-                          ),
+                  WidgetAppBar(
+                    onTap: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SubjectScreen(),
                         ),
-                        SizedBox(
-                          width: 30.w,
-                        ),
-                        Text(
-                          "Natija",
-                          style: AppTextStyle.interBold.copyWith(
-                            color: AppColors.cF2F2F2,
-                            fontWeight: FontWeight.w500,
-                            fontSize: 20.sp,
-                          ),
-                        ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                   GetSubjectItem(
                     subjectName: widget.subjectModel.subjectName,
@@ -245,97 +195,9 @@ class _ResultScreenState extends State<ResultScreen> {
               ),
             ),
             const Spacer(),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.symmetric(
-                  vertical: 15.h,
-                  horizontal: 32.w,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.c162023,
-                  borderRadius: BorderRadius.circular(
-                    40.r,
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      color: AppColors.c000000.withOpacity(
-                        0.25.r,
-                      ),
-                      blurRadius: 4.r,
-                      offset: Offset(
-                        0,
-                        4.r,
-                      ),
-                    ),
-                  ],
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    RichText(
-                      text: TextSpan(
-                          text: "Next:\n",
-                          style: AppTextStyle.interBold.copyWith(
-                            color: AppColors.cF2F2F2,
-                            fontSize: 15.sp,
-                            fontWeight: FontWeight.w400,
-                          ),
-                          children: [
-                            TextSpan(
-                              text: "Quadratic Equations",
-                              style: AppTextStyle.interBold.copyWith(
-                                color: AppColors.cF2F2F2,
-                                fontSize: 15.sp,
-                                fontWeight: FontWeight.w600,
-                              ),
-                            )
-                          ]),
-                    ),
-                    ZoomTapAnimation(
-                      onTap: () {},
-                      child: Container(
-                        padding: EdgeInsets.symmetric(
-                          vertical: 8.h,
-                          horizontal: 20.w,
-                        ),
-                        decoration: BoxDecoration(
-                          color: AppColors.cF2954D,
-                          boxShadow: [
-                            BoxShadow(
-                              color: AppColors.c000000.withOpacity(
-                                0.25,
-                              ),
-                              blurRadius: 12.r,
-                              offset: Offset(
-                                0,
-                                5.r,
-                              ),
-                            ),
-                          ],
-                          border: Border.all(
-                            color: AppColors.cF2954D,
-                            width: 1.w,
-                          ),
-                          borderRadius: BorderRadius.circular(
-                            16.r,
-                          ),
-                        ),
-                        child: Center(
-                          child: Text(
-                            "Go",
-                            style: AppTextStyle.interBold.copyWith(
-                              color: AppColors.cF2F2F2,
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            BottomContainer(
+              onTap: () {},
+            )
           ],
         ),
       ),

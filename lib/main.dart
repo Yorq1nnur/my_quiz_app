@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_quiz_app/screens/splash_screen.dart';
+import 'package:my_quiz_app/screens/splash_screen/splash_screen.dart';
 import 'package:my_quiz_app/utils/colors/app_colors.dart';
 
 void main() {
