@@ -33,7 +33,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
   int activeIndex = 0;
   int selectedIndex = 0;
   int questionIndex = 0;
-  
+
   int trueAnswers = 0;
 
   Map<int, int> selectedAnswers = {};
@@ -65,7 +65,8 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => ResultScreen(
-                        subjectModel: widget.subjectModel, trueAnswers: trueAnswers,
+                        subjectModel: widget.subjectModel,
+                        trueAnswers: trueAnswers,
                       ),
                     ),
                   );
@@ -178,61 +179,49 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                               setState(
                                 () {
                                   selectedIndex = 1;
-                                  if(questions[activeIndex].variant1 == questions[activeIndex].trueAnswer){
-                                    trueAnswers++;
-                                  }
                                 },
                               );
                             },
                             isSelected: selectedIndex == 1,
                             caption: "A",
                             variantText: questions[activeIndex].variant1,
-                          ),
+                            ),
                           VariantItem(
                             onTap: () {
                               setState(
                                 () {
                                   selectedIndex = 2;
-                                  if(questions[activeIndex].variant2 == questions[activeIndex].trueAnswer){
-                                    trueAnswers++;
-                                  }
                                 },
                               );
                             },
                             isSelected: selectedIndex == 2,
                             caption: "B",
                             variantText: questions[activeIndex].variant2,
-                          ),
+                            ),
                           VariantItem(
                             onTap: () {
                               setState(
                                 () {
                                   selectedIndex = 3;
-                                  if(questions[activeIndex].variant3 == questions[activeIndex].trueAnswer){
-                                    trueAnswers++;
-                                  }
                                 },
                               );
                             },
                             isSelected: selectedIndex == 3,
                             caption: "C",
                             variantText: questions[activeIndex].variant3,
-                          ),
+                            ),
                           VariantItem(
                             onTap: () {
                               setState(
                                 () {
                                   selectedIndex = 4;
-                                  if(questions[activeIndex].variant4 == questions[activeIndex].trueAnswer){
-                                    trueAnswers++;
-                                  }
                                 },
                               );
                             },
                             isSelected: selectedIndex == 4,
                             caption: "D",
                             variantText: questions[activeIndex].variant4,
-                          ),
+                            ),
                         ],
                       ),
                     ),

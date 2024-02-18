@@ -93,7 +93,7 @@ class _ResultScreenState extends State<ResultScreen> {
                       children: [
                         CircularProgressIndicator(
                           color: AppColors.cF2954D,
-                          value: widget.trueAnswers/widget.subjectModel.questions.length,
+                          value: 0.65,
                           strokeWidth: 10.w,
                           strokeAlign: BorderSide.strokeAlignOutside,
                           strokeCap: StrokeCap.butt,
