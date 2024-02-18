@@ -8,6 +8,7 @@ import 'package:my_quiz_app/screens/result_screen/get_subject_item.dart';
 import 'package:my_quiz_app/screens/result_screen/get_time_container.dart';
 import 'package:my_quiz_app/screens/result_screen/get_true_answers_container.dart';
 import 'package:my_quiz_app/screens/result_screen/widget_app_bar.dart';
+import 'package:my_quiz_app/screens/start_quiz_screen/start_quiz_screen.dart';
 import 'package:my_quiz_app/utils/colors/app_colors.dart';
 import '../../utils/images/app_images.dart';
 import '../../utils/styles/app_text_style.dart';
@@ -16,7 +17,8 @@ import '../subject_screen/subject_screen.dart';
 class ResultScreen extends StatefulWidget {
   const ResultScreen({
     super.key,
-    required this.subjectModel, required this.trueAnswers,
+    required this.subjectModel,
+    required this.trueAnswers,
   });
 
   final int trueAnswers;
@@ -188,7 +190,17 @@ class _ResultScreenState extends State<ResultScreen> {
                   ),
                   GetBottomItems(
                     check: () {},
-                    again: () {},
+                    again: () {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => StartQuizScreen(
+                              time: widget.subjectModel.questions.length,
+                              subjectName: widget.subjectModel.subjectName,
+                              subjectModel: widget.subjectModel),
+                        ),
+                      );
+                    },
                   ),
                 ],
               ),
