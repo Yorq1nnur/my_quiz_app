@@ -33,6 +33,8 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
   int activeIndex = 0;
   int selectedIndex = 0;
   int questionIndex = 0;
+  
+  int trueAnswers = 0;
 
   Map<int, int> selectedAnswers = {};
 
@@ -63,7 +65,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                     context,
                     MaterialPageRoute(
                       builder: (context) => ResultScreen(
-                        subjectModel: widget.subjectModel,
+                        subjectModel: widget.subjectModel, trueAnswers: trueAnswers,
                       ),
                     ),
                   );
@@ -176,6 +178,9 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                               setState(
                                 () {
                                   selectedIndex = 1;
+                                  if(questions[activeIndex].variant1 == questions[activeIndex].trueAnswer){
+                                    trueAnswers++;
+                                  }
                                 },
                               );
                             },
@@ -188,6 +193,9 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                               setState(
                                 () {
                                   selectedIndex = 2;
+                                  if(questions[activeIndex].variant2 == questions[activeIndex].trueAnswer){
+                                    trueAnswers++;
+                                  }
                                 },
                               );
                             },
@@ -200,6 +208,9 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                               setState(
                                 () {
                                   selectedIndex = 3;
+                                  if(questions[activeIndex].variant3 == questions[activeIndex].trueAnswer){
+                                    trueAnswers++;
+                                  }
                                 },
                               );
                             },
@@ -212,6 +223,9 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                               setState(
                                 () {
                                   selectedIndex = 4;
+                                  if(questions[activeIndex].variant4 == questions[activeIndex].trueAnswer){
+                                    trueAnswers++;
+                                  }
                                 },
                               );
                             },

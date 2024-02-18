@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:my_quiz_app/models/subject_model.dart';
 import 'package:my_quiz_app/screens/result_screen/bottom_container.dart';
 import 'package:my_quiz_app/screens/result_screen/get_bottom_items.dart';
@@ -10,7 +9,6 @@ import 'package:my_quiz_app/screens/result_screen/get_time_container.dart';
 import 'package:my_quiz_app/screens/result_screen/get_true_answers_container.dart';
 import 'package:my_quiz_app/screens/result_screen/widget_app_bar.dart';
 import 'package:my_quiz_app/utils/colors/app_colors.dart';
-import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 import '../../utils/images/app_images.dart';
 import '../../utils/styles/app_text_style.dart';
 import '../subject_screen/subject_screen.dart';
@@ -18,9 +16,10 @@ import '../subject_screen/subject_screen.dart';
 class ResultScreen extends StatefulWidget {
   const ResultScreen({
     super.key,
-    required this.subjectModel,
+    required this.subjectModel, required this.trueAnswers,
   });
 
+  final int trueAnswers;
   final SubjectModel subjectModel;
 
   @override
@@ -94,7 +93,7 @@ class _ResultScreenState extends State<ResultScreen> {
                       children: [
                         CircularProgressIndicator(
                           color: AppColors.cF2954D,
-                          value: 0.7,
+                          value: widget.trueAnswers/widget.subjectModel.questions.length,
                           strokeWidth: 10.w,
                           strokeAlign: BorderSide.strokeAlignOutside,
                           strokeCap: StrokeCap.butt,
