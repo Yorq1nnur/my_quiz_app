@@ -60,15 +60,18 @@ class AnswersReport {
 
       falseAnswersCount = subjectModel.questions.length - trueAnswersCount;
 
-      // int onlySelectedAnswersCount = 0;
-      //
-      // for (int i = 0; i < subjectModel.questions.length; i++) {
-      //   if (selectedAnswers[i] != 0) {
-      //     onlySelectedAnswersCount++;
-      //   }
-      // }
+      int onlySelectedAnswersCount = 0;
 
-      averageTime = timeSpent ~/ subjectModel.questions.length;
+      for (int i = 0; i < subjectModel.questions.length; i++) {
+        if (selectedAnswers[i] != 0) {
+          onlySelectedAnswersCount++;
+        }
+      }
+
+
+      if(onlySelectedAnswersCount != 0){
+        averageTime = timeSpent ~/ onlySelectedAnswersCount;
+      }
 
       totalTime = subjectModel.questions.length * levelTime;
 
