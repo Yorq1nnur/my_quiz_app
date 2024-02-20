@@ -60,12 +60,14 @@ class _VariantItemState extends State<VariantItem> {
                 SizedBox(
                   width: 12.w,
                 ),
-                Text(
-                  widget.variantText,
-                  style: AppTextStyle.interBold.copyWith(
-                    color: AppColors.cF2F2F2,
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
+                Expanded(
+                  child: Text(
+                    widget.variantText,
+                    style: AppTextStyle.interBold.copyWith(
+                      color: AppColors.cF2F2F2,
+                      fontSize: 14.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
               ],

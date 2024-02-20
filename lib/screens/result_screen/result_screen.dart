@@ -109,8 +109,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                         AppColors.cF2954D.withOpacity(
                                       0.20,
                                     ),
-                                    value: 0.75,
-                                    //widget.answersReport.truePercentage,
+                                    value: widget.answersReport.trueAnswersCount/widget.answersReport.subjectModel.questions.length,
                                     strokeWidth: 8.h,
                                     strokeCap: StrokeCap.round,
                                   ),
