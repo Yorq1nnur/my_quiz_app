@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_quiz_app/models/answers_report.dart';
 import 'package:my_quiz_app/models/subject_model.dart';
 import 'package:my_quiz_app/screens/result_screen/result_screen.dart';
 import 'package:my_quiz_app/screens/start_quiz_screen/start_quiz_appbar.dart';
@@ -274,9 +275,8 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultScreen(
-          subjectModel: widget.subjectModel,
-          trueAnswers: trueAnswers,
+        builder: (context) => ResultScreen(answersReport: AnswersReport(subjectModel: widget.subjectModel, selectedAnswers: selectedAnswers, spentTime: questions.length * levelTime - timeCount, levelTime: levelTime),
+          
         ),
       ),
     );

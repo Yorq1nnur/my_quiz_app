@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:my_quiz_app/models/subject_model.dart';
+import 'package:my_quiz_app/models/answers_report.dart';
 import 'package:my_quiz_app/screens/result_screen/bottom_container.dart';
 import 'package:my_quiz_app/screens/result_screen/get_bottom_items.dart';
 import 'package:my_quiz_app/screens/result_screen/get_subject_item.dart';
@@ -16,13 +16,10 @@ import '../subject_screen/subject_screen.dart';
 
 class ResultScreen extends StatefulWidget {
   const ResultScreen({
-    super.key,
-    required this.subjectModel,
-    required this.trueAnswers,
-  });
+    super.key, required this.answersReport,
 
-  final int trueAnswers;
-  final SubjectModel subjectModel;
+  });
+final AnswersReport answersReport;
 
   @override
   State<ResultScreen> createState() => _ResultScreenState();
@@ -59,8 +56,8 @@ class _ResultScreenState extends State<ResultScreen> {
                     },
                   ),
                   GetSubjectItem(
-                    subjectName: widget.subjectModel.subjectName,
-                    subjectDescription: widget.subjectModel.description,
+                    subjectName: widget.answersReport.subjectModel.subjectName,
+                    subjectDescription: widget.answersReport.subjectModel.description,
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(
@@ -195,9 +192,9 @@ class _ResultScreenState extends State<ResultScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => StartQuizScreen(
-                              time: widget.subjectModel.questions.length,
-                              subjectName: widget.subjectModel.subjectName,
-                              subjectModel: widget.subjectModel),
+                              time: widget.answersReport.subjectModel.questions.length,
+                              subjectName: widget.answersReport.subjectModel.subjectName,
+                              subjectModel: widget.answersReport.subjectModel),
                         ),
                       );
                     },
