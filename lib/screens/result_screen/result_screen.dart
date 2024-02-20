@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -16,10 +18,11 @@ import '../subject_screen/subject_screen.dart';
 
 class ResultScreen extends StatefulWidget {
   const ResultScreen({
-    super.key, required this.answersReport,
-
+    super.key,
+    required this.answersReport,
   });
-final AnswersReport answersReport;
+
+  final AnswersReport answersReport;
 
   @override
   State<ResultScreen> createState() => _ResultScreenState();
@@ -57,11 +60,13 @@ class _ResultScreenState extends State<ResultScreen> {
                   ),
                   GetSubjectItem(
                     subjectName: widget.answersReport.subjectModel.subjectName,
-                    subjectDescription: widget.answersReport.subjectModel.description,
+                    subjectDescription:
+                        widget.answersReport.subjectModel.description,
+                    trueAnswersCount: widget.answersReport.trueAnswersCount,
                   ),
                   Container(
                     padding: EdgeInsets.symmetric(
-                      horizontal: 50.w,
+                      horizontal: 30.w,
                       vertical: 20.h,
                     ),
                     margin: EdgeInsets.only(
@@ -90,15 +95,22 @@ class _ResultScreenState extends State<ResultScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        CircularProgressIndicator(
-                          color: AppColors.cF2954D,
-                          value: 0.65,
-                          strokeWidth: 10.w,
-                          strokeAlign: BorderSide.strokeAlignOutside,
-                          strokeCap: StrokeCap.butt,
-                          valueColor: const AlwaysStoppedAnimation<Color>(
-                              AppColors.cF2954D),
-                          backgroundColor: AppColors.cF2954D.withOpacity(0.5),
+                        SizedBox(
+                          height: 110.h,
+                          width: 110.w,
+                          child: Transform.rotate(
+                            angle: pi,
+                            child: CircularProgressIndicator(
+                              color: AppColors.cF2954D,
+                              backgroundColor: AppColors.cF2954D.withOpacity(
+                                0.20,
+                              ),
+                              value: 0.75,
+                              //widget.answersReport.truePercentage,
+                              strokeWidth: 8.h,
+                              strokeCap: StrokeCap.round,
+                            ),
+                          ),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -192,8 +204,10 @@ class _ResultScreenState extends State<ResultScreen> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => StartQuizScreen(
-                              time: widget.answersReport.subjectModel.questions.length,
-                              subjectName: widget.answersReport.subjectModel.subjectName,
+                              time: widget
+                                  .answersReport.subjectModel.questions.length,
+                              subjectName:
+                                  widget.answersReport.subjectModel.subjectName,
                               subjectModel: widget.answersReport.subjectModel),
                         ),
                       );

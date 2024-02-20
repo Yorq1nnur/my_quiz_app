@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../utils/colors/app_colors.dart';
 import '../../utils/styles/app_text_style.dart';
 
 class GetSubjectItem extends StatelessWidget {
   const GetSubjectItem(
-      {super.key, required this.subjectName, required this.subjectDescription});
+      {super.key, required this.subjectName, required this.subjectDescription, required this.trueAnswersCount});
 
   final String subjectName;
   final String subjectDescription;
+  final int trueAnswersCount;
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +58,28 @@ class GetSubjectItem extends StatelessWidget {
                 color: AppColors.cF2F2F2.withOpacity(0.5),
                 fontSize: 13.sp,
                 fontWeight: FontWeight.w400),
+          ),
+          SizedBox(
+            height: 8.h,
+          ),
+          Row(
+            children: [
+              Text(
+                "To'g'ri javoblar soni",
+                style: AppTextStyle.interBold.copyWith(
+                    color: AppColors.cF2F2F2.withOpacity(0.5),
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w400),
+              ),
+              SizedBox(width: 10.w,),
+              Text(
+                trueAnswersCount.toString(),
+                style: AppTextStyle.interBold.copyWith(
+                    color: AppColors.cF2F2F2.withOpacity(0.5),
+                    fontSize: 13.sp,
+                    fontWeight: FontWeight.w400),
+              ),
+            ],
           )
         ],
       ),
