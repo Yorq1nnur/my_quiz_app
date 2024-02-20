@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_quiz_app/screens/description_screen/scroll_text.dart';
@@ -13,15 +15,16 @@ class CenterContainer extends StatefulWidget {
     required this.subjectName,
     required this.subjectCount,
     required this.onTap,
-    required this.description,
+    required this.description, required this.countSubject,
   });
 
   final Color containerColor;
   final String imagePath;
   final String subjectName;
-  final int subjectCount;
+  final String subjectCount;
   final VoidCallback onTap;
   final String description;
+  final int countSubject;
 
   @override
   State<CenterContainer> createState() => _CenterContainerState();
@@ -119,7 +122,7 @@ class _CenterContainerState extends State<CenterContainer> {
                     width: 20.w,
                   ),
                   Text(
-                    widget.subjectCount.toString(),
+                    widget.countSubject.toString(),
                     style: AppTextStyle.interBold.copyWith(
                       color: AppColors.cF2F2F2,
                       fontSize: 16.sp,
@@ -148,7 +151,7 @@ class _CenterContainerState extends State<CenterContainer> {
                     width: 20.w,
                   ),
                   Text(
-                    "${widget.subjectCount}:00",
+                    widget.subjectCount.toString(),
                     style: AppTextStyle.interBold.copyWith(
                       color: AppColors.cF2F2F2,
                       fontSize: 16.sp,
@@ -178,7 +181,7 @@ class _CenterContainerState extends State<CenterContainer> {
               description: widget.description,
             ),
             BottomItems(
-              subjectCount: widget.subjectCount,
+              subjectCount: widget.countSubject,
               onTap: widget.onTap,
             ),
           ],

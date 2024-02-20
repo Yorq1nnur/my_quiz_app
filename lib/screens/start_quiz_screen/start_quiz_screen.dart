@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -33,17 +34,38 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
   int activeIndex = 0;
   int selectedIndex = 0;
   int questionIndex = 0;
-
+  int timeCount = 0;
   int trueAnswers = 0;
+  int levelTime = 0;
 
   Map<int, int> selectedAnswers = {};
 
+  Future<void> _timerLogic() async{
+    for(int i = 0; i < questions.length*levelTime; i++){
+      await Future.delayed(const Duration(seconds: 1));
+      setState(() {
+        timeCount = i + 1;
+      });
+    }
+
+    _navigateToResultScreen();
+
+  }
+
   @override
   void initState() {
+    if(widget.subjectModel.level.name == "easy"){
+      levelTime = 20;
+    }else if(widget.subjectModel.level.name == "medium"){
+      levelTime = 30;
+    }else{
+      levelTime = 60;
+    }
     questions = widget.subjectModel.questions;
     for (int i = 0; i < questions.length; i++) {
       selectedAnswers[i] = 0;
     }
+    _timerLogic();
     super.initState();
   }
 
@@ -59,19 +81,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
           children: [
             StartQuizAppBar(
               title: widget.subjectName,
-              submitOnTap: () {
-                if (questionIndex == questions.length - 1) {
-                  Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ResultScreen(
-                        subjectModel: widget.subjectModel,
-                        trueAnswers: trueAnswers,
-                      ),
-                    ),
-                  );
-                }
-              },
+              submitOnTap: _navigateToResultScreen,
             ),
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 20.w),
@@ -96,7 +106,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                         fit: BoxFit.cover,
                       ),
                       Text(
-                        "${widget.time}:00",
+                        getMinutelyText(timeCount),
                         style: AppTextStyle.interBold.copyWith(
                           color: AppColors.cF2F2F2,
                           fontSize: 16.sp,
@@ -113,7 +123,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
               child: LinearProgressIndicator(
                 color: AppColors.cF2954D,
                 backgroundColor: AppColors.c162023,
-                value: 0.5,
+                value: timeCount/(questions.length*levelTime),
                 minHeight: 10.h,
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -185,7 +195,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                             isSelected: selectedIndex == 1,
                             caption: "A",
                             variantText: questions[activeIndex].variant1,
-                            ),
+                          ),
                           VariantItem(
                             onTap: () {
                               setState(
@@ -197,7 +207,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                             isSelected: selectedIndex == 2,
                             caption: "B",
                             variantText: questions[activeIndex].variant2,
-                            ),
+                          ),
                           VariantItem(
                             onTap: () {
                               setState(
@@ -209,7 +219,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                             isSelected: selectedIndex == 3,
                             caption: "C",
                             variantText: questions[activeIndex].variant3,
-                            ),
+                          ),
                           VariantItem(
                             onTap: () {
                               setState(
@@ -221,7 +231,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
                             isSelected: selectedIndex == 4,
                             caption: "D",
                             variantText: questions[activeIndex].variant4,
-                            ),
+                          ),
                         ],
                       ),
                     ),
@@ -259,4 +269,26 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
       ),
     );
   }
+
+  _navigateToResultScreen(){
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ResultScreen(
+          subjectModel: widget.subjectModel,
+          trueAnswers: trueAnswers,
+        ),
+      ),
+    );
+  }
+}
+
+String getMinutelyText(int timeInSeconds) {
+  int min = timeInSeconds ~/ 60;
+  int sec = timeInSeconds % 60;
+
+  String minute = min.toString().length <= 1 ? "0$min" : "$min";
+  String second = sec.toString().length <= 1 ? "0$sec" : "$sec";
+
+  return "$minute : $second";
 }
