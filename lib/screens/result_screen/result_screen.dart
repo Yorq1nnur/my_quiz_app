@@ -203,7 +203,7 @@ class _ResultScreenState extends State<ResultScreen> {
                             containerColor: AppColors.c27AE60,
                             answersCount: widget.answersReport.trueAnswersCount,
                             check: "To'g'ri javoblar",
-                            horizontalPadding: 16,
+                            horizontalPadding: 12,
                           ),
                           GetTrueAnswersContainer(
                             containerColor: AppColors.cEB5757,
@@ -239,7 +239,6 @@ class _ResultScreenState extends State<ResultScreen> {
                     ),
                   ),
                   GetBottomItems(
-                    check: () {},
                     again: () {
                       Navigator.pushReplacement(
                         context,

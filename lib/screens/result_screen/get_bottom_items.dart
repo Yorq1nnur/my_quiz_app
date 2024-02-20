@@ -9,11 +9,9 @@ import '../../utils/styles/app_text_style.dart';
 class GetBottomItems extends StatelessWidget {
   const GetBottomItems({
     super.key,
-    required this.check,
     required this.again,
   });
 
-  final VoidCallback check;
   final VoidCallback again;
 
   @override
@@ -21,47 +19,6 @@ class GetBottomItems extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        ZoomTapAnimation(
-          onTap: check,
-          child: Container(
-            padding: EdgeInsets.symmetric(
-              vertical: 12.h,
-              horizontal: 20.w,
-            ),
-            margin: EdgeInsets.only(
-              bottom: 20.h,
-            ),
-            decoration: BoxDecoration(
-              color: AppColors.cF2954D.withOpacity(0.5),
-              border: Border.all(
-                color: AppColors.cF2954D,
-                width: 1.w,
-              ),
-              boxShadow: [
-                BoxShadow(
-                  color: AppColors.c000000.withOpacity(0.25),
-                  blurRadius: 12.r,
-                  offset: Offset(
-                    0,
-                    5.r,
-                  ),
-                ),
-              ],
-              borderRadius: BorderRadius.circular(
-                16.r,
-              ),
-            ),
-            child: Center(
-              child: Text(
-                "Javoblarni tekshirish",
-                style: AppTextStyle.interBold.copyWith(
-                    color: AppColors.cF2F2F2,
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.w600),
-              ),
-            ),
-          ),
-        ),
         ZoomTapAnimation(
           onTap: again,
           child: Container(
@@ -115,6 +72,7 @@ class GetBottomItems extends StatelessWidget {
             ),
           ),
         ),
+
       ],
     );
   }
