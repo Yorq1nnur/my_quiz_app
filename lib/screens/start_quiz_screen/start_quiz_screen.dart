@@ -41,8 +41,8 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
 
   Map<int, int> selectedAnswers = {};
 
-  Future<void> _timerLogic() async{
-    for(int i = 0; i < questions.length*levelTime; i++){
+  Future<void> _timerLogic() async {
+    for (int i = 0; i < questions.length * levelTime; i++) {
       await Future.delayed(const Duration(seconds: 1));
       setState(() {
         timeCount = i + 1;
@@ -50,16 +50,15 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
     }
 
     _navigateToResultScreen();
-
   }
 
   @override
   void initState() {
-    if(widget.subjectModel.level.name == "easy"){
+    if (widget.subjectModel.level.name == "easy") {
       levelTime = 20;
-    }else if(widget.subjectModel.level.name == "medium"){
+    } else if (widget.subjectModel.level.name == "medium") {
       levelTime = 30;
-    }else{
+    } else {
       levelTime = 60;
     }
     questions = widget.subjectModel.questions;
@@ -124,7 +123,7 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
               child: LinearProgressIndicator(
                 color: AppColors.cF2954D,
                 backgroundColor: AppColors.c162023,
-                value: timeCount/(questions.length*levelTime),
+                value: timeCount / (questions.length * levelTime),
                 minHeight: 10.h,
                 borderRadius: BorderRadius.circular(8),
               ),
@@ -271,12 +270,18 @@ class _StartQuizScreenState extends State<StartQuizScreen> {
     );
   }
 
-  _navigateToResultScreen(){
+  _navigateToResultScreen() {
+    selectedAnswers[activeIndex] = selectedIndex;
+    print(selectedAnswers);
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (context) => ResultScreen(answersReport: AnswersReport(subjectModel: widget.subjectModel, selectedAnswers: selectedAnswers, spentTime: questions.length * levelTime - timeCount, levelTime: levelTime),
-          
+        builder: (context) => ResultScreen(
+          answersReport: AnswersReport(
+              subjectModel: widget.subjectModel,
+              selectedAnswers: selectedAnswers,
+              spentTime: questions.length * levelTime - timeCount,
+              levelTime: levelTime),
         ),
       ),
     );

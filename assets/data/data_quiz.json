@@ -379,6 +379,31 @@
       ]
     },
     {
+      "subject_name": "Matematika",
+      "image" : "assets/images/math.png",
+      "level": "medium",
+      "description": "Matematikadan o'rta darajadagi testlar to'plami",
+      "color": "27AE60",
+      "questions": [
+        {
+          "question_text": "Qaysi javobda natural sonlar berilgan?",
+          "true_answer": "1, 2, 3, 4, 5",
+          "variant_1": "2.5, -7, 3, 0",
+          "variant_2": "2, -7, 1.3, 0",
+          "variant_3": "2.5, -7/5, -3, -0",
+          "variant_4": "1, 2, 3, 4, 5"
+        },
+        {
+          "question_text": "Qaysi javobda natural sonlar berilgan?",
+          "true_answer": "1, 2, 3, 4, 5",
+          "variant_1": "2.5, -7, 3, 0",
+          "variant_2": "2, -7, 1.3, 0",
+          "variant_3": "2.5, -7/5, -3, -0",
+          "variant_4": "1, 2, 3, 4, 5"
+        }
+      ]
+    },
+    {
       "subject_name": "Ingliz tili",
       "image" : "assets/images/english.png",
       "level": "easy",

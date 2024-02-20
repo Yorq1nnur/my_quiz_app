@@ -94,20 +94,54 @@ class _ResultScreenState extends State<ResultScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         SizedBox(
-                          height: 110.h,
-                          width: 110.w,
-                          child: Transform.rotate(
-                            angle: pi,
-                            child: CircularProgressIndicator(
-                              color: AppColors.cF2954D,
-                              backgroundColor: AppColors.cF2954D.withOpacity(
-                                0.20,
+                          height: 120.h,
+                          width: 120.h,
+                          child: Stack(
+                            children: [
+                              SizedBox(
+                                height: 110.sp,
+                                width: 110.sp,
+                                child: Transform.rotate(
+                                  angle: pi,
+                                  child: CircularProgressIndicator(
+                                    color: AppColors.cF2954D,
+                                    backgroundColor:
+                                        AppColors.cF2954D.withOpacity(
+                                      0.20,
+                                    ),
+                                    value: 0.75,
+                                    //widget.answersReport.truePercentage,
+                                    strokeWidth: 8.h,
+                                    strokeCap: StrokeCap.round,
+                                  ),
+                                ),
                               ),
-                              value: 0.75,
-                              //widget.answersReport.truePercentage,
-                              strokeWidth: 8.h,
-                              strokeCap: StrokeCap.round,
-                            ),
+                              Align(
+                                alignment: Alignment.center,
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                    text:
+                                        "${widget.answersReport.trueAnswersCount}",
+                                    style: AppTextStyle.interBold.copyWith(
+                                      color: AppColors.cF2F2F2,
+                                      fontSize: 27.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    children: [
+                                      TextSpan(
+                                        text: "/${widget.answersReport.subjectModel.questions.length}\nyour score",
+                                        style: AppTextStyle.interBold.copyWith(
+                                          color: AppColors.cF2F2F2,
+                                          fontSize: 13.sp,
+                                          fontWeight: FontWeight.w400,
+                                        ),
+                                      ),
+                                    ]
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Column(
@@ -133,7 +167,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: " this test with ",
+                                      text: " this test with\n",
                                       style: AppTextStyle.interBold.copyWith(
                                         color: AppColors.cF2F2F2,
                                         fontSize: 16.sp,
@@ -141,7 +175,8 @@ class _ResultScreenState extends State<ResultScreen> {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: "${widget.answersReport.truePercentage * 100} %",
+                                      text:
+                                          "${widget.answersReport.truePercentage * 100} %",
                                       style: AppTextStyle.interBold.copyWith(
                                         color: AppColors.cF2954D,
                                         fontSize: 16.sp,
@@ -159,40 +194,48 @@ class _ResultScreenState extends State<ResultScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 20.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GetTrueAnswersContainer(
-                          containerColor: AppColors.c27AE60,
-                          answersCount: widget.answersReport.trueAnswersCount,
-                          check: "To'g'ri javoblar",
-                          horizontalPadding: 16,
-                        ),
-                        GetTrueAnswersContainer(
-                          containerColor: AppColors.cEB5757,
-                          answersCount: widget.answersReport.falseAnswersCount,
-                          check: "Noto'g'ri javoblar",
-                          horizontalPadding: 30,
-                        ),
-                      ],
+                    child: Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GetTrueAnswersContainer(
+                            containerColor: AppColors.c27AE60,
+                            answersCount: widget.answersReport.trueAnswersCount,
+                            check: "To'g'ri javoblar",
+                            horizontalPadding: 16,
+                          ),
+                          GetTrueAnswersContainer(
+                            containerColor: AppColors.cEB5757,
+                            answersCount: widget.answersReport.falseAnswersCount,
+                            check: "Noto'g'ri javoblar",
+                            horizontalPadding: 30,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 20.h),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        GetTimeContainer(
-                            containerColor: AppColors.cF2954D,
-                            iconPath: AppImages.clock,
-                            title: getMinutelyText(widget.answersReport.totalTime),
-                            description: "Umumiy vaqt"),
-                        GetTimeContainer(
-                            containerColor: Colors.grey,
-                            iconPath: AppImages.secondClock,
-                            title: getMinutelyText(widget.answersReport.averageTime),
-                            description: "Oʻrtacha Vaqt / Javob"),
-                      ],
+                    child: Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          GetTimeContainer(
+                              containerColor: AppColors.cF2954D,
+                              iconPath: AppImages.clock,
+                              title:
+                                  getMinutelyText(widget.answersReport.timeSpent),
+                              description: "Umumiy vaqt"),
+                          GetTimeContainer(
+                              containerColor: Colors.grey,
+                              iconPath: AppImages.secondClock,
+                              title: getMinutelyText(
+                                  widget.answersReport.averageTime),
+                              description: "Oʻrtacha Vaqt / Javob"),
+                        ],
+                      ),
                     ),
                   ),
                   GetBottomItems(

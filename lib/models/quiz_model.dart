@@ -24,7 +24,7 @@ class QuizModel {
       questionText: json["question_text"] as String? ?? "",
       description: json["description"] as String? ?? "",
       image: json["image"] as String? ?? "",
-      trueAnswer: json["trueAnswer"] as String? ?? "",
+      trueAnswer: json["true_answer"] as String? ?? "",
       variant1: json["variant_1"] as String? ?? "",
       variant2: json["variant_2"] as String? ?? "",
       variant3: json["variant_3"] as String? ?? "",
