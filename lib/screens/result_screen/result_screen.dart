@@ -121,24 +121,25 @@ class _ResultScreenState extends State<ResultScreen> {
                                 child: RichText(
                                   textAlign: TextAlign.center,
                                   text: TextSpan(
-                                    text:
-                                        "${widget.answersReport.trueAnswersCount}",
-                                    style: AppTextStyle.interBold.copyWith(
-                                      color: AppColors.cF2F2F2,
-                                      fontSize: 27.sp,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                    children: [
-                                      TextSpan(
-                                        text: "/${widget.answersReport.subjectModel.questions.length}\nyour score",
-                                        style: AppTextStyle.interBold.copyWith(
-                                          color: AppColors.cF2F2F2,
-                                          fontSize: 13.sp,
-                                          fontWeight: FontWeight.w400,
-                                        ),
+                                      text:
+                                          "${widget.answersReport.trueAnswersCount}",
+                                      style: AppTextStyle.interBold.copyWith(
+                                        color: AppColors.cF2F2F2,
+                                        fontSize: 27.sp,
+                                        fontWeight: FontWeight.w600,
                                       ),
-                                    ]
-                                  ),
+                                      children: [
+                                        TextSpan(
+                                          text:
+                                              "/${widget.answersReport.subjectModel.questions.length}\nyour score",
+                                          style:
+                                              AppTextStyle.interBold.copyWith(
+                                            color: AppColors.cF2F2F2,
+                                            fontSize: 13.sp,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                      ]),
                                 ),
                               ),
                             ],
@@ -176,7 +177,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                     ),
                                     TextSpan(
                                       text:
-                                          "${widget.answersReport.truePercentage * 100} %",
+                                          "${widget.answersReport.truePercentage} %",
                                       style: AppTextStyle.interBold.copyWith(
                                         color: AppColors.cF2954D,
                                         fontSize: 16.sp,
@@ -207,7 +208,8 @@ class _ResultScreenState extends State<ResultScreen> {
                           ),
                           GetTrueAnswersContainer(
                             containerColor: AppColors.cEB5757,
-                            answersCount: widget.answersReport.falseAnswersCount,
+                            answersCount:
+                                widget.answersReport.falseAnswersCount,
                             check: "Noto'g'ri javoblar",
                             horizontalPadding: 30,
                           ),
@@ -225,8 +227,8 @@ class _ResultScreenState extends State<ResultScreen> {
                           GetTimeContainer(
                               containerColor: AppColors.cF2954D,
                               iconPath: AppImages.clock,
-                              title:
-                                  getMinutelyText(widget.answersReport.timeSpent),
+                              title: getMinutelyText(
+                                  widget.answersReport.timeSpent),
                               description: "Umumiy vaqt"),
                           GetTimeContainer(
                               containerColor: Colors.grey,

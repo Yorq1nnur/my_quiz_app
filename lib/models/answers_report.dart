@@ -60,13 +60,13 @@ class AnswersReport {
 
       falseAnswersCount = subjectModel.questions.length - trueAnswersCount;
 
-      int onlySelectedAnswersCount = 0;
-
-      for (int i = 0; i < subjectModel.questions.length; i++) {
-        if (selectedAnswers[i] != 0) {
-          onlySelectedAnswersCount++;
-        }
-      }
+      // int onlySelectedAnswersCount = 0;
+      //
+      // for (int i = 0; i < subjectModel.questions.length; i++) {
+      //   if (selectedAnswers[i] != 0) {
+      //     onlySelectedAnswersCount++;
+      //   }
+      // }
 
       averageTime = timeSpent ~/ subjectModel.questions.length;
 
@@ -74,7 +74,7 @@ class AnswersReport {
 
       timeSpent = (subjectModel.questions.length * levelTime) - spentTime;
 
-      truePercentage = trueAnswersCount / onlySelectedAnswersCount;
+      truePercentage = (trueAnswersCount / subjectModel.questions.length) * 100;
     }
   }
 }
