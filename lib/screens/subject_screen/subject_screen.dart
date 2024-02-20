@@ -17,6 +17,7 @@ class SubjectScreen extends StatefulWidget {
 
 class _SubjectScreenState extends State<SubjectScreen> {
 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +64,7 @@ class _SubjectScreenState extends State<SubjectScreen> {
                                 ),
                               ),
                             );
-                          }, level: DataRepo().allSubjects[index].level.name,
+                          }, level: subject.level.name,
                         ),
                       ),
                     );
