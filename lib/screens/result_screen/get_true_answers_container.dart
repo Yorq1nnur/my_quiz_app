@@ -13,7 +13,7 @@ class GetTrueAnswersContainer extends StatelessWidget {
   });
 
   final Color containerColor;
-  final String answersCount;
+  final int answersCount;
   final String check;
   final int horizontalPadding;
 
@@ -41,7 +41,7 @@ class GetTrueAnswersContainer extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            answersCount,
+            answersCount.toString(),
             style: AppTextStyle.interBold.copyWith(
               color: AppColors.cF2F2F2,
               fontSize: 20.sp,

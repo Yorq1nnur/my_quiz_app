@@ -1,10 +1,8 @@
 import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_quiz_app/models/answers_report.dart';
-import 'package:my_quiz_app/screens/result_screen/bottom_container.dart';
 import 'package:my_quiz_app/screens/result_screen/get_bottom_items.dart';
 import 'package:my_quiz_app/screens/result_screen/get_subject_item.dart';
 import 'package:my_quiz_app/screens/result_screen/get_time_container.dart';
@@ -143,7 +141,7 @@ class _ResultScreenState extends State<ResultScreen> {
                                       ),
                                     ),
                                     TextSpan(
-                                      text: " 80%.",
+                                      text: "${widget.answersReport.truePercentage * 100} %",
                                       style: AppTextStyle.interBold.copyWith(
                                         color: AppColors.cF2954D,
                                         fontSize: 16.sp,
@@ -161,18 +159,18 @@ class _ResultScreenState extends State<ResultScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 20.h),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GetTrueAnswersContainer(
                           containerColor: AppColors.c27AE60,
-                          answersCount: "8",
+                          answersCount: widget.answersReport.trueAnswersCount,
                           check: "To'g'ri javoblar",
                           horizontalPadding: 16,
                         ),
                         GetTrueAnswersContainer(
                           containerColor: AppColors.cEB5757,
-                          answersCount: "2",
+                          answersCount: widget.answersReport.falseAnswersCount,
                           check: "Noto'g'ri javoblar",
                           horizontalPadding: 30,
                         ),
@@ -181,18 +179,18 @@ class _ResultScreenState extends State<ResultScreen> {
                   ),
                   Padding(
                     padding: EdgeInsets.only(bottom: 20.h),
-                    child: const Row(
+                    child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         GetTimeContainer(
                             containerColor: AppColors.cF2954D,
                             iconPath: AppImages.clock,
-                            title: "12m 20sec",
+                            title: getMinutelyText(widget.answersReport.totalTime),
                             description: "Umumiy vaqt"),
                         GetTimeContainer(
                             containerColor: Colors.grey,
                             iconPath: AppImages.secondClock,
-                            title: "2m 28sec",
+                            title: getMinutelyText(widget.answersReport.averageTime),
                             description: "Oʻrtacha Vaqt / Javob"),
                       ],
                     ),
@@ -216,10 +214,6 @@ class _ResultScreenState extends State<ResultScreen> {
                 ],
               ),
             ),
-            const Spacer(),
-            BottomContainer(
-              onTap: () {},
-            )
           ],
         ),
       ),

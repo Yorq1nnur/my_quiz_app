@@ -26,51 +26,53 @@ class AnswersReport {
     for (int i = 0; i < subjectModel.questions.length; i++) {
       QuizModel quiz = subjectModel.questions[i];
       int selection = selectedAnswers[i]!;
-
+      int trues = 0;
       switch (selection) {
         case 1:
           {
             if (quiz.trueAnswer == quiz.variant1) {
-              trueAnswersCount++;
+              trues++;
             }
           }
         case 2:
           {
             if (quiz.trueAnswer == quiz.variant2) {
-              trueAnswersCount++;
+              trues++;
             }
           }
         case 3:
           {
             if (quiz.trueAnswer == quiz.variant3) {
-              trueAnswersCount++;
+              trues++;
             }
           }
         case 4:
           {
             if (quiz.trueAnswer == quiz.variant4) {
-              trueAnswersCount++;
+              trues++;
             }
           }
         default:
           {}
       }
+
+      trueAnswersCount = trues;
+
       falseAnswersCount = subjectModel.questions.length - trueAnswersCount;
 
       int onlySelectedAnswersCount = 0;
 
       for (int i = 0; i < subjectModel.questions.length; i++) {
-        if(selectedAnswers[i] != 0){
+        if (selectedAnswers[i] != 0) {
           onlySelectedAnswersCount++;
         }
       }
 
-    averageTime = spentTime ~/ onlySelectedAnswersCount;
+      averageTime = spentTime ~/ onlySelectedAnswersCount;
 
       totalTime = subjectModel.questions.length * levelTime;
 
       truePercentage = trueAnswersCount / subjectModel.questions.length;
-
     }
   }
 }
